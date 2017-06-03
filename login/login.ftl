@@ -3,6 +3,7 @@
     <#if section = "title">
         ${msg("loginTitle",(realm.displayName!''))}
     <#elseif section = "header">
+        <img src="${url.resourcesPath}/img/${realm.name!}-logo.png">
         ${msg("loginTitleHtml",(realm.displayNameHtml!''))}
     <#elseif section = "form">
         <#if realm.password>
