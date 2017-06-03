@@ -59,6 +59,14 @@
                      </div>
                 </div>
             </form>
+            <hr>
+            <p>
+              <a href="https://www.osc.edu/content/password_change_policy_faqs">Forgot your password?</a> |
+              <a href="https://www.osc.edu/contact/supercomputing_support">Need Help?</a>
+              <span class="pull-right">
+                <a href="https://www.osc.edu/resources/getting_started/allocations_and_accounts">Register for a new account</a>
+              </span>
+            </p>
         </#if>
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !usernameEditDisabled??>
