@@ -18,3 +18,7 @@
 .btn-primary:hover {
   background-color: rgb(82, 80, 81) !important;
 }
+
+.page-header {
+  border-bottom: none;
+}

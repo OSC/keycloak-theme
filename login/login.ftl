@@ -3,8 +3,10 @@
     <#if section = "title">
         ${msg("loginTitle",(realm.displayName!''))}
     <#elseif section = "header">
-        <img src="${url.resourcesPath}/img/${realm.name!}-logo.png">
-        ${msg("loginTitleHtml",(realm.displayNameHtml!''))}
+      <div class="page-header">
+        <p><img src="${url.resourcesPath}/img/${realm.name!}-logo.png"></p>
+        <p>${msg("loginTitleHtml",(realm.displayNameHtml!''))}</p>
+      </div>
     <#elseif section = "form">
         <#if realm.password>
             <form id="kc-form-login" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
