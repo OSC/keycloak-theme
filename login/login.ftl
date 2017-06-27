@@ -64,7 +64,11 @@
               <a href="https://www.osc.edu/content/password_change_policy_faqs">Forgot your password?</a> |
               <a href="https://www.osc.edu/contact/supercomputing_support">Need Help?</a>
               <span class="pull-right">
-                <a href="https://www.osc.edu/resources/getting_started/allocations_and_accounts">Register for a new account</a>
+                <#if realm.name = "awesim">
+                  <a href="https://www.awesim.org/en/signup">Register for a new account</a>
+                <#else>
+                  <a href="https://www.osc.edu/resources/getting_started/allocations_and_accounts">Register for a new account</a>
+                </#if>
               </span>
             </p>
         </#if>
