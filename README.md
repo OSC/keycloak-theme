@@ -33,6 +33,23 @@ awesim/
     └── theme.properties
 ```
 
+* login/messages/messages_en.properties:
+
+  ```
+  logintitle=Login to the Ohio Supercomputer Center
+  loginTitleHtml=<p class="lead">Log in with your OSC username and password.</p>
+  summary=The Ohio Super Computer Center (OSC)
+  ```
+
+* theme.properties
+
+  ```
+  parent=ood-keycloak
+
+  oodFooterLinks="Forgot your password?==https://www.osc.edu/content/password_change_policy_faqs,,Need Help?==https://www.osc.edu/contact/supercomputing_support,,Register for a new account==https://www.awesim.org/en/signup"
+  ```
+
+
 
 ## Maintaining
 
