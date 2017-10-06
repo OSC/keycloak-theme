@@ -1,7 +1,40 @@
-# OSC Keycloak theme
+# OnDemand Keycloak theme
 
-This basic theme works for both OSC and AweSim realms. It assumes the realm names will be osc and awesim.
-The logo that appears above the menu is `${realm.name!}-logo.png` i.e. `awesim-logo.png` or `osc-logo.png`.
+1. cd to keycloak/themes directory
+2. git clone or wget and untar this repo, renaming the directory to `ood-keycloak`
+3. create an override theme based on this (examples under `example_overrides`)  or use base theme as it is
+
+
+i.e.
+
+
+```
+cd /opt/keycloak-3.3.0.CR2/themes
+git clone https://github.com/OSC/keycloak-theme.git ood-keycloak
+cp -r ood-keycloak/example_overrides/awesim awesim
+cp -r ood-keycloak/example_overrides/osc osc
+
+# choose awesim or osc for appropriate realms
+```
+
+## Configuring
+
+Example theme override:
+
+```
+awesim/
+└── login
+    ├── messages
+    │   └── messages_en.properties
+    ├── resources
+    │   └── img
+    │       ├── favicon.ico
+    │       └── logo.png
+    └── theme.properties
+```
+
+
+## Maintaining
 
 Install by cloning this repo to /opt/keycloak-3.0.0.Final/themes/osc. Then make the files read only by the user keycloak.
 
@@ -14,14 +47,4 @@ $
 ```
 
 Only login.ftl has been modified, so if the user may access another page that uses a different template, we might consider adding the logo to template.ftl instead.
-
-### TODO 
-
-- [ ] build custom bootstrap - remove css you don't need
-- [ ] if we should vary the create new account link between awesim and ondemand, use this:
-
-```
-<#if realm.name = 'osc'>add osc link here</#if>
-<#if realm.name = 'awesim'>add awesim link here</#if>
-```
 
