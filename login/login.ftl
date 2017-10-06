@@ -3,7 +3,7 @@
     <#if section = "title">
         ${msg("loginTitle",(realm.displayName!''))}
     <#elseif section = "header">
-        <p><img src="${url.resourcesPath}/img/${realm.name!}-logo.png"></p>
+        <p><img src="${url.resourcesPath}/img/logo.png"></p>
         ${msg("loginTitleHtml",(realm.displayNameHtml!''))}
     <#elseif section = "form">
         <#if realm.password>
@@ -60,18 +60,14 @@
                 </div>
             </form>
             <hr>
-            <p>
-              <a href="https://www.osc.edu/content/password_change_policy_faqs">Forgot your password?</a> |
-              <a href="https://www.osc.edu/contact/supercomputing_support">Need Help?</a>
-              <span class="pull-right">
-                <#if realm.name = "awesim">
-                  <a href="https://www.awesim.org/en/signup">Register for a new account</a>
-                <#else>
-                  <a href="https://www.osc.edu/resources/getting_started/allocations_and_accounts">Register for a new account</a>
-                </#if>
-              </span>
-            </p>
-        </#if>
+            <#if properties.oodFooterLinks?has_content>
+                <ul class="list-inline">
+                    <#list properties.oodFooterLinks?split(properties.oodFooterLinksDelimiter) as footerLink>
+                        <li><a href="${footerLink?split(properties.oodFooterLinkDelimiter)[1]}">${footerLink?split(properties.oodFooterLinkDelimiter)[0]}</a></li>
+                    </#list>
+                </ul>
+            </#if>
+        </#if><#-- <#if realm.password> -->
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !usernameEditDisabled??>
             <div id="kc-registration">
