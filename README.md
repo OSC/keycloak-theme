@@ -65,3 +65,12 @@ $
 
 Only login.ftl has been modified, so if the user may access another page that uses a different template, we might consider adding the logo to template.ftl instead.
 
+
+## LICENSE
+
+- Code licensed under MIT License
+- Brand icons are not. All OSC and AweSim brand icons are trademarks of OSC.
+  These icons should only be used to represent OSC.
+  Please do not use brand logos for any purpose except to represent
+  that particular brand or service.
+
