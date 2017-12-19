@@ -3,11 +3,11 @@
     <#if section = "title">
         ${msg("loginTitle",(realm.displayName!''))}
     <#elseif section = "header">
-        <p><img src="${url.resourcesPath}/img/${realm.name!}-logo.png"></p>
-        ${msg("loginTitleHtml",(realm.displayNameHtml!''))}
+        <p><img src="${url.resourcesPath}/img/logo.png"></p>
+        ${msg("loginTitleHtml",(realm.displayNameHtml!''))?no_esc}
     <#elseif section = "form">
         <#if realm.password>
-            <form id="kc-form-login" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
+            <form id="kc-form-login" class="${properties.kcFormClass!}" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                 <div class="${properties.kcFormGroupClass!}">
                     <div class="${properties.kcLabelWrapperClass!}">
                         <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
@@ -15,9 +15,9 @@
 
                     <div class="${properties.kcInputWrapperClass!}">
                         <#if usernameEditDisabled??>
-                            <input id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')?html}" type="text" disabled />
+                            <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
                         <#else>
-                            <input id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')?html}" type="text" autofocus autocomplete="off" />
+                            <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" autofocus autocomplete="off" />
                         </#if>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="${properties.kcInputWrapperClass!}">
-                        <input id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" />
+                        <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" />
                     </div>
                 </div>
 
@@ -38,44 +38,40 @@
                             <div class="checkbox">
                                 <label>
                                     <#if login.rememberMe??>
-                                        <input id="rememberMe" name="rememberMe" type="checkbox" tabindex="3" checked> ${msg("rememberMe")}
+                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" tabindex="3" checked> ${msg("rememberMe")}
                                     <#else>
-                                        <input id="rememberMe" name="rememberMe" type="checkbox" tabindex="3"> ${msg("rememberMe")}
+                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" tabindex="3"> ${msg("rememberMe")}
                                     </#if>
                                 </label>
                             </div>
                         </#if>
                         <div class="${properties.kcFormOptionsWrapperClass!}">
                             <#if realm.resetPasswordAllowed>
-                                <span><a href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
+                                <span><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
                             </#if>
                         </div>
                     </div>
 
                     <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
                         <div class="${properties.kcFormButtonsWrapperClass!}">
-                            <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                            <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                         </div>
                      </div>
                 </div>
             </form>
             <hr>
-            <p>
-              <a href="https://www.osc.edu/content/password_change_policy_faqs">Forgot your password?</a> |
-              <a href="https://www.osc.edu/contact/supercomputing_support">Need Help?</a>
-              <span class="pull-right">
-                <#if realm.name = "awesim">
-                  <a href="https://www.awesim.org/en/signup">Register for a new account</a>
-                <#else>
-                  <a href="https://www.osc.edu/resources/getting_started/allocations_and_accounts">Register for a new account</a>
-                </#if>
-              </span>
-            </p>
-        </#if>
+            <#if properties.oodFooterLinks?has_content>
+                <ul class="list-inline">
+                    <#list properties.oodFooterLinks?split(properties.oodFooterLinksDelimiter) as footerLink>
+                        <li><a href="${footerLink?split(properties.oodFooterLinkDelimiter)[1]}">${footerLink?split(properties.oodFooterLinkDelimiter)[0]}</a></li>
+                    </#list>
+                </ul>
+            </#if>
+        </#if><#-- <#if realm.password> -->
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !usernameEditDisabled??>
             <div id="kc-registration">
-                <span>${msg("noAccount")} <a href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
             </div>
         </#if>
 
