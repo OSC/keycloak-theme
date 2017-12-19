@@ -1,5 +1,9 @@
 # OnDemand Keycloak theme
 
+Currently updated to work with Keycloak 3.4.1.
+
+## Install
+
 1. cd to keycloak/themes directory
 2. git clone or wget and untar this repo, renaming the directory to `ood-keycloak`
 3. create an override theme based on this (examples under `example_overrides`)  or use base theme as it is
@@ -9,7 +13,7 @@ i.e.
 
 
 ```
-cd /opt/keycloak-3.3.0.CR2/themes
+cd /opt/keycloak-3.4.1/themes
 git clone https://github.com/OSC/keycloak-theme.git ood-keycloak
 cp -r ood-keycloak/example_overrides/awesim awesim
 cp -r ood-keycloak/example_overrides/osc osc
@@ -53,13 +57,13 @@ awesim/
 
 ## Maintaining
 
-Install by cloning this repo to /opt/keycloak-3.0.0.Final/themes/osc. Then make the files read only by the user keycloak.
+Install by cloning this repo to /opt/keycloak-3.4.1.Final/themes/osc. Then make the files read only by the user keycloak.
 
 The login.ftl template has been modified from the original in base/login/login.ftl.
 When upgrading to a new version of KeyCloak, verify that this base template did not change.
 
 ```
-$ diff /opt/keycloak-3.0.0.Final/themes/base/login/login.ftl /opt/keycloak-2.5.4.Final/themes/base/login/login.ftl
+$ diff /opt/keycloak-3.4.1.Final/themes/base/login/login.ftl /opt/keycloak-3.0.0.Final/themes/base/login/login.ftl
 $
 ```
 
