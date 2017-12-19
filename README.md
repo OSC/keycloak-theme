@@ -57,8 +57,6 @@ awesim/
 
 ## Maintaining
 
-Install by cloning this repo to /opt/keycloak-3.4.1.Final/themes/osc. Then make the files read only by the user keycloak.
-
 The login.ftl template has been modified from the original in base/login/login.ftl.
 When upgrading to a new version of KeyCloak, verify that this base template did not change.
 
