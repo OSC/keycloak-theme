@@ -67,6 +67,7 @@
                     </#list>
                 </ul>
             </#if>
+            <p>${msg("footer")?no_esc}</p>
         </#if><#-- <#if realm.password> -->
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !usernameEditDisabled??>
