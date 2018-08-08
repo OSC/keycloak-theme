@@ -1,6 +1,6 @@
 # OnDemand Keycloak theme
 
-Currently updated to work with Keycloak 3.4.1.
+Currently updated to work with Keycloak 4.2.1.
 
 ## Install
 
@@ -13,7 +13,7 @@ i.e.
 
 
 ```
-cd /opt/keycloak-3.4.1/themes
+cd /opt/keycloak-4.2.1/themes
 git clone https://github.com/OSC/keycloak-theme.git ood-keycloak
 cp -r ood-keycloak/example_overrides/awesim awesim
 cp -r ood-keycloak/example_overrides/osc osc
@@ -57,16 +57,13 @@ awesim/
 
 ## Maintaining
 
-The login.ftl template has been modified from the original in base/login/login.ftl.
+The template.ftl and login.ftl templates have been modified from the originals in base/login/template.ftl and base/login/login.ftl.
 When upgrading to a new version of KeyCloak, verify that this base template did not change.
 
 ```
-$ diff /opt/keycloak-3.4.1.Final/themes/base/login/login.ftl /opt/keycloak-3.0.0.Final/themes/base/login/login.ftl
-$
+$ diff /opt/keycloak-4.2.1.Final/themes/base/login/template.ftl /opt/keycloak-4.3.0.Final/themes/base/login/template.ftl
+$ diff /opt/keycloak-4.2.1.Final/themes/base/login/login.ftl /opt/keycloak-4.3.0.Final/themes/base/login/login.ftl
 ```
-
-Only login.ftl has been modified, so if the user may access another page that uses a different template, we might consider adding the logo to template.ftl instead.
-
 
 ## LICENSE
 
