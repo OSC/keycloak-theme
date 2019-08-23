@@ -13,3 +13,21 @@
 .page-header {
   border-bottom: none;
 }
+
+@media (min-width: 768px) {
+  .login-pf-social-section:first-of-type {
+    padding-right: 39px;
+    border-right: 1px solid #d1d1d1;
+    margin-right: -1px;
+  }
+  .login-pf-social-section:last-of-type {
+    padding-left: 40px;
+  }
+  .login-pf-social-section .login-pf-social-link:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.login-pf-social-link a {
+  color: #fff;
+}

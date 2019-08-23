@@ -49,15 +49,8 @@
                   </div>
             </form>
             <hr>
-            <#if properties.oodFooterLinks?has_content>
-                <ul class="list-inline">
-                    <#list properties.oodFooterLinks?split(properties.oodFooterLinksDelimiter) as footerLink>
-                        <li><a href="${footerLink?split(properties.oodFooterLinkDelimiter)[1]}">${footerLink?split(properties.oodFooterLinkDelimiter)[0]}</a></li>
-                    </#list>
-                </ul>
-            </#if>
-            <p>${msg("footer")?no_esc}</p>
         </#if><#-- <#if realm.password> -->
+	</div>
         <#if realm.password && social.providers??>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}">
                 <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 4>${properties.kcFormSocialAccountDoubleListClass!}</#if>">
@@ -68,7 +61,15 @@
             </div>
 	 </#if>
         </div>
+        <#if properties.oodFooterLinks?has_content>
+          <ul class="list-inline">
+            <#list properties.oodFooterLinks?split(properties.oodFooterLinksDelimiter) as footerLink>
+              <li><a href="${footerLink?split(properties.oodFooterLinkDelimiter)[1]}">${footerLink?split(properties.oodFooterLinkDelimiter)[0]}</a></li>
+            </#list>
+          </ul>
+        </#if>
       </div>
+    <p>${msg("footer")?no_esc}</p>
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !usernameEditDisabled??>
             <div id="kc-registration">
