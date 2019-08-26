@@ -51,7 +51,7 @@
             <hr>
         </#if><#-- <#if realm.password> -->
 	</div>
-        <#if realm.password && social.providers??>
+        <#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login")>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}">
                 <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 4>${properties.kcFormSocialAccountDoubleListClass!}</#if>">
                     <#list social.providers as p>
