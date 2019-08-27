@@ -4,7 +4,7 @@
         ${msg("doLogIn")}
     <#elseif section = "form">
     <div id="kc-form" <#if realm.password && social.providers??>class="${properties.kcContentWrapperClass!}"</#if>>
-      <div id="kc-form-wrapper" <#if realm.password && social.providers??>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
+      <div id="kc-form-wrapper" <#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login")>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
         <#if realm.password>
             <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                 <div class="${properties.kcFormGroupClass!}">
@@ -50,7 +50,7 @@
             </form>
             <hr>
         </#if><#-- <#if realm.password> -->
-	</div>
+	  </div>
         <#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login")>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}">
                 <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 4>${properties.kcFormSocialAccountDoubleListClass!}</#if>">
@@ -59,8 +59,8 @@
                     </#list>
                 </ul>
             </div>
-	 </#if>
-        </div>
+	    </#if>
+      </div>
         <#if properties.oodFooterLinks?has_content>
           <ul class="list-inline">
             <#list properties.oodFooterLinks?split(properties.oodFooterLinksDelimiter) as footerLink>
