@@ -37,8 +37,6 @@
       <p><img src="${url.resourcesPath}/img/logo.png"></p>
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">${msg("loginTitleHtml",(realm.displayNameHtml!''))?no_esc}</div>
     </div>
-    <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
-      <header class="${properties.kcFormHeaderClass!}">
         <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
             <div id="kc-locale">
                 <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
@@ -53,11 +51,6 @@
                 </div>
             </div>
         </#if>
-        <h1 id="kc-page-title"><#nested "header"></h1>
-      </header>
-      <div id="kc-content">
-        <div id="kc-content-wrapper">
-
           <#if displayMessage && message?has_content>
               <div class="alert alert-${message.type}">
                   <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
@@ -77,10 +70,6 @@
                   </div>
               </div>
           </#if>
-        </div>
-      </div>
-
-    </div>
   </div>
 </body>
 </html>
