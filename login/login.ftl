@@ -49,6 +49,13 @@
                   </div>
             </form>
             <hr>
+        <#if properties.oodFooterLinks?has_content>
+          <ul class="list-inline">
+            <#list properties.oodFooterLinks?split(properties.oodFooterLinksDelimiter) as footerLink>
+              <li><a href="${footerLink?split(properties.oodFooterLinkDelimiter)[1]}">${footerLink?split(properties.oodFooterLinkDelimiter)[0]}</a></li>
+            </#list>
+          </ul>
+        </#if>
         </#if><#-- <#if realm.password> -->
 	  </div>
         <#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login")>
@@ -78,15 +85,6 @@
             </div>
 	    </#if>
       </div>
-        <#if properties.oodFooterLinks?has_content>
-        <div class="${properties.kcFooterClass}">
-          <ul class="list-inline">
-            <#list properties.oodFooterLinks?split(properties.oodFooterLinksDelimiter) as footerLink>
-              <li><a href="${footerLink?split(properties.oodFooterLinkDelimiter)[1]}">${footerLink?split(properties.oodFooterLinkDelimiter)[0]}</a></li>
-            </#list>
-          </ul>
-        </div>
-        </#if>
       </div>
     <p>${msg("footer")?no_esc}</p>
     <#elseif section = "info" >
