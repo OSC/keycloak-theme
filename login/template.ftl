@@ -33,7 +33,7 @@
 
 <body class="${properties.kcBodyClass!}">
   <div class="${properties.kcLoginClass!}">
-    <div id="kc-header" class="${properties.kcHeaderClass!}">
+    <div id="kc-header" <#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login")>class="${properties.kcSocialHeaderClass!}"<#else>class="${properties.kcHeaderClass}"</#if>>
       <p><img src="${url.resourcesPath}/img/logo.png"></p>
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">${msg("loginTitleHtml",(realm.displayNameHtml!''))?no_esc}</div>
     </div>
