@@ -1,10 +1,10 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout displayInfo=social.displayInfo displayWide=(realm.password && social.providers??); section>
 <#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login") && client.clientId?contains("osc.edu")>
 <#assign showSocial = true>
 <#else>
 <#assign showSocial = false>
 </#if>
+<@layout.registrationLayout displayInfo=social.displayInfo displayWide=showSocial; section>
     <#if section = "header">
         ${msg("doLogIn")}
     <#elseif section = "form">
