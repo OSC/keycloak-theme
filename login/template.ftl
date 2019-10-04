@@ -31,14 +31,29 @@
     </#if>
 </head>
 
+<#if url.oauthAction?contains("first-broker-login")>
+<#assign mapping = true>
+<#else>
+<#assign mapping = false>
+</#if>
+<#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login") && client.clientId?contains("osc.edu")>
+<#assign showSocial = true>
+<#else>
+<#assign showSocial = false>
+</#if>
+
 <body class="${properties.kcBodyClass!}">
   <div class="${properties.kcLoginClass!}">
-    <div id="kc-header" class="${properties.kcHeaderClass!}">
+    <div id="kc-header" <#if showSocial >class="${properties.kcSocialHeaderClass!}"<#else>class="${properties.kcHeaderClass}"</#if>>
       <p><img src="${url.resourcesPath}/img/logo.png"></p>
-      <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">${msg("loginTitleHtml",(realm.displayNameHtml!''))?no_esc}</div>
+      <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
+        <#if mapping>
+            ${msg("mappingLoginTitleHtml",(realm.displayNameHtml!''))?no_esc}
+        <#else>
+            ${msg("loginTitleHtml",(realm.displayNameHtml!''))?no_esc}
+        </#if>
     </div>
-    <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
-      <header class="${properties.kcFormHeaderClass!}">
+    </div>
         <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
             <div id="kc-locale">
                 <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
@@ -53,11 +68,6 @@
                 </div>
             </div>
         </#if>
-        <h1 id="kc-page-title"><#nested "header"></h1>
-      </header>
-      <div id="kc-content">
-        <div id="kc-content-wrapper">
-
           <#if displayMessage && message?has_content>
               <div class="alert alert-${message.type}">
                   <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
@@ -77,10 +87,6 @@
                   </div>
               </div>
           </#if>
-        </div>
-      </div>
-
-    </div>
   </div>
 </body>
 </html>
