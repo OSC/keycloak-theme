@@ -16,7 +16,7 @@
     <link rel="icon" href="${url.resourcesPath}/img/favicon.ico" />
     <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
-            <link href="${url.resourcesPath}/${style}" rel="stylesheet" />
+            <link href="${url.resourcesPath}/${style}?v=2.2.0" rel="stylesheet" />
         </#list>
     </#if>
     <#if properties.scripts?has_content>
