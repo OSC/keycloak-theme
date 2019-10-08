@@ -85,8 +85,8 @@
             </div>
 	    </#if>
       </div>
-      </div>
-    <p>${msg("footer")?no_esc}</p>
+
+    <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">${msg("footer")?no_esc}</div>
     <#elseif section = "info" >
         <#if realm.password && realm.registrationAllowed && !usernameEditDisabled??>
             <div id="kc-registration">
