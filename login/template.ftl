@@ -36,7 +36,7 @@
 <#else>
 <#assign mapping = false>
 </#if>
-<#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login") && client.clientId?contains("osc.edu")>
+<#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login") && client?? && client.clientId?contains("osc.edu")>
 <#assign showSocial = true>
 <#else>
 <#assign showSocial = false>
