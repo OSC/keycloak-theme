@@ -64,10 +64,9 @@
                     <#list social.providers as p>
                         <li class="${properties.kcFormSocialAccountListLinkClass!}"><a href="${p.loginUrl}" id="zocial-${p.alias}" class="zocial ${p.providerId}"> <span>Log in with third party through ${p.displayName}</span></a></li>
                         <#if p.alias = "cilogon">
-                            <div class="thumbnail" style="text-align: center;">
-                                <h4>Step 1. Choose your identity provider<br><small>CILogon provides access to identity providers from many academic institutions across the state.</small></h4>
-                                <img class="img-rounded img-responsive center-block" alt="100%x200" src="${url.resourcesPath}/img/login1.png" style="display: block;"> or
-                                <img class="img-rounded img-responsive center-block" alt="100%x200" src="${url.resourcesPath}/img/login1_feb4.png" style="display: block;">
+                            <div class="thumbnail">
+                                <h4 style="text-align: center;">Step 1. Choose your identity provider<br><small>CILogon provides access to identity providers from many academic institutions across the state.</small></h4>
+                                <img class="img-rounded img-responsive center-block" alt="100%x200" src="${url.resourcesPath}/img/login1.png" style="display: block;">
                             </div>
                             <div class="thumbnail">
                                 <h4 style="text-align: center;">Step 2. Login via your provider<br><small>For example, here I've chosen Ohio State University as my provider and am presented OSU's login page.</small></h4>
