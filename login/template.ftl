@@ -1,4 +1,4 @@
-<#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayWide=false>
+<#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayWide=false showSocial=false>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" class="${properties.kcHtmlClass!}">
 
@@ -35,11 +35,6 @@
 <#assign mapping = true>
 <#else>
 <#assign mapping = false>
-</#if>
-<#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login") && client?? && (client.clientId?contains("osc.edu") || client.clientId?contains("kubernetes"))>
-<#assign showSocial = true>
-<#else>
-<#assign showSocial = false>
 </#if>
 
 <body class="${properties.kcBodyClass!}">

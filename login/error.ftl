@@ -3,7 +3,7 @@
     <#if section = "header">
         ${msg("errorTitle")}
     <#elseif section = "form">
-        <div class="alert alert-error" id="kc-error-message">
+        <div class="alert alert-error ${properties.kcHeaderClass}" id="kc-error-message">
             <p class="instruction">${message.summary}</p>
             <#if message.summary = "Unexpected error when authenticating with identity provider">
                 This error could be caused by your account already having a mapping for CILogon.</br>

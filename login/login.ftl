@@ -1,10 +1,15 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout displayInfo=social.displayInfo displayWide=layout.showSocial; section>
+<#if realm.password && social.providers?? && ! url.oauthAction?contains("first-broker-login") && client?? && (client.clientId?contains("osc.edu") || client.clientId?contains("kubernetes"))>
+<#assign showSocial = true>
+<#else>
+<#assign showSocial = false>
+</#if>
+<@layout.registrationLayout displayInfo=social.displayInfo displayWide=showSocial showSocial=showSocial; section>
     <#if section = "header">
         ${msg("doLogIn")}
     <#elseif section = "form">
     <div id="kc-form" <#if realm.password && social.providers??>class="${properties.kcContentWrapperClass!}"</#if>>
-      <div id="kc-form-wrapper" <#if layout.showSocial >class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"<#else>class="${properties.kcFormContentClass}"</#if>>
+      <div id="kc-form-wrapper" <#if showSocial >class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"<#else>class="${properties.kcFormContentClass}"</#if>>
         <#if realm.password>
             <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                 <div class="${properties.kcFormGroupClass!}">
@@ -58,7 +63,7 @@
         </#if>
         </#if><#-- <#if realm.password> -->
 	  </div>
-        <#if layout.showSocial>
+        <#if showSocial>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}">
                 <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 4>${properties.kcFormSocialAccountDoubleListClass!}</#if>">
                     <#list social.providers as p>
