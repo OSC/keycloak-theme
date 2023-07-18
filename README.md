@@ -57,13 +57,15 @@ awesim/
 
 ## Maintaining
 
-The template.ftl and login.ftl templates have been modified from the originals in base/login/template.ftl and base/login/login.ftl.
-When upgrading to a new version of KeyCloak, verify that this base template did not change.
+To get the upstream themes:
 
 ```
-$ diff /opt/keycloak-4.2.1.Final/themes/base/login/template.ftl /opt/keycloak-4.3.0.Final/themes/base/login/template.ftl
-$ diff /opt/keycloak-4.2.1.Final/themes/base/login/login.ftl /opt/keycloak-4.3.0.Final/themes/base/login/login.ftl
+cd /opt/keycloak/themes/ood-keycloak
+unzip ../../lib/lib/main/org.keycloak.keycloak-themes-22.0.0.jar
 ```
+
+The template.ftl and login.ftl templates have been modified from the originals in base/login/template.ftl and base/login/login.ftl.
+When upgrading to a new version of KeyCloak, verify that this base template did not change.
 
 ## LICENSE
 
