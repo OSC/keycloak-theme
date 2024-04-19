@@ -170,6 +170,7 @@ export class AccountPage extends React.Component {
       validated: this.state.errors.email !== "" ? ValidatedOptions.error : ValidatedOptions.default
     }, /*#__PURE__*/React.createElement(TextInput, {
       isRequired: true,
+      isReadOnly: true,
       type: "email",
       id: "email-address",
       name: "email",
@@ -201,6 +202,7 @@ export class AccountPage extends React.Component {
       validated: this.state.errors.firstName !== "" ? ValidatedOptions.error : ValidatedOptions.default
     }, /*#__PURE__*/React.createElement(TextInput, {
       isRequired: true,
+      isReadOnly: true,
       type: "text",
       id: "first-name",
       name: "firstName",
@@ -215,6 +217,7 @@ export class AccountPage extends React.Component {
       validated: this.state.errors.lastName !== "" ? ValidatedOptions.error : ValidatedOptions.default
     }, /*#__PURE__*/React.createElement(TextInput, {
       isRequired: true,
+      isReadOnly: true,
       type: "text",
       id: "last-name",
       name: "lastName",
@@ -243,12 +246,13 @@ export class AccountPage extends React.Component {
       type: "submit",
       id: "save-btn",
       variant: "primary",
-      isDisabled: Object.values(this.state.errors).filter(e => e !== "").length !== 0
+      isDisabled: true,
     }, /*#__PURE__*/React.createElement(Msg, {
       msgKey: "doSave"
     })), /*#__PURE__*/React.createElement(Button, {
       id: "cancel-btn",
       variant: "link",
+      isDisabled: true,
       onClick: this.handleCancel
     }, /*#__PURE__*/React.createElement(Msg, {
       msgKey: "doCancel"
