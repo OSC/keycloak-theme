@@ -40,7 +40,7 @@
 <body class="${properties.kcBodyClass!}">
   <div class="${properties.kcLoginClass!}">
     <div id="kc-header" <#if showSocial >class="${properties.kcSocialHeaderClass!}"<#else>class="${properties.kcHeaderClass}"</#if>>
-      <p><img src="${url.resourcesPath}/img/logo.png"></p>
+      <p><img src="${url.resourcesPath}/img/logo.png" style="margin: auto; display: block; height: 50%; width: 50%; object-fit: contain;"></p>
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
         <#if mapping>
             ${msg("mappingLoginTitleHtml",(realm.displayNameHtml!''))?no_esc}
